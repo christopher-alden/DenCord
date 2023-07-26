@@ -1,3 +1,3 @@
-#discord replica
-###Tech Stack
+# discord replica
+### Tech Stack
 : TypeScript, Tailwind, React, Firebase
