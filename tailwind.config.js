@@ -8,7 +8,8 @@ module.exports = {
         'sub':'#1c1c21',
         'light':'#9CA3AF',
         'hover':'#4b4c52',
-        'accent':'#5865F2'
+        'accent':'#5865F2',
+        
       },
      
     },
