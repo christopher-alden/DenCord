@@ -6,7 +6,7 @@ const DenCordLogo = () => (
     <div className="flex justify-center items-center gap-2 poppins">
       <img
         src={logo}
-        alt=""
+        alt="logo"
         className="w-5 h-5"
       />
       <h1 className="text-xl uppercase font-bold">DenCord</h1>
