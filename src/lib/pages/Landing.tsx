@@ -48,20 +48,20 @@ export default function Landing(){
     }
 
     return(
-        <div>
+        <>
             <Header>
                 <DenCordLogo/>
                 <div className='flex xl:gap-8 md:gap-4 font-light items-center justify-end'>
                     <RoundedButton handleEvent={handleGithub}>Github</RoundedButton>
-                    <RoundedButton>Learn More</RoundedButton>
+                    {/* <RoundedButton>Learn More</RoundedButton> */}
                     <RoundedButton handleEvent={handleLogin} textColor='text-white' color='bg-accent' padding='md:px-8 px-4 py-2'>Log In</RoundedButton>
                 </div>
             </Header>
-            <div className='w-screen h-[100vh]'>
-                <div className='absolute w-full h-full flex flex-col overflow-hidden'>
-                    <div className='w-full h-[20vw] bg-main z-10'></div>
-                    <div className='w-full h-full bg-gradient-to-b from-main to bg-transparent z-10'></div>
-                    <Image attributes='absolute w-full h-full opacity-75 top-[20vh]' src={BG}/>
+            <div className='w-screen h-screen'>
+                <div className='absolute w-full h-screen flex flex-col'>
+                    <div className='w-full h-[30vh] md:h-[20vh] bg-main z-10'></div>
+                    <div className='w-full h-full bg-gradient-to-b from-main to bg-transparent z-10 '></div>
+                    <Image attributes='absolute w-full h-screen opacity-75 top-[18vh]' imgAttributes='object-left md:object-center' src={BG}/>
                 </div>
                 <div className='relative z-10 flex flex-col gap-10 justify-center items-center xl:items-center md:items-start xl:px-[10vw] px-[6vw] h-full md:h-auto'>
                     <section className='flex w-fit md:mt-60'>
@@ -78,9 +78,9 @@ export default function Landing(){
                     </section>
                 </div>
             </div>
-            <footer className='absolute bottom-0 w-full h-20 flex justify-center items-center'>
+            <footer className='fixed bottom-0 w-full h-20 flex justify-center items-center'>
                 <h1 className='font-bold uppercase poppins text-white text-2xl opacity-50'>christopheraldn</h1>
             </footer>
-        </div>
+        </>
     );
 }

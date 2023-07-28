@@ -2,11 +2,12 @@
 type ImageProps = {
     src: string
     attributes?: string,
+    imgAttributes?:string,
     
 }
-const Image = ({src, attributes}:ImageProps) =>(
+const Image = ({src, attributes, imgAttributes}:ImageProps) =>(
     <div className={` ${attributes}`}>
-        <img src={src} alt={src} className="w-full h-full object-cover object-center" />
+        <img src={src} alt={src} className={`w-full h-full object-cover ${imgAttributes}`}/>
     </div>
 )
 
