@@ -45,7 +45,6 @@ export default function Landing(){
     }
 
     const handleUsernameChange = debounce((username:string)=>{
-        console.log("test")
         const trimmedUsername = username?.trim()
         if(trimmedUsername && !/^\s*$/.test(trimmedUsername)){
             setIsUsernameNull(false)
@@ -58,7 +57,6 @@ export default function Landing(){
 
     const handleRegister = (e:any) =>{
         e.preventDefault()
-        console.log(username)
         if(username && !isUsernameNull){
             navigate(`/register?username=${encodeURIComponent(username)}`)
         }
@@ -85,7 +83,7 @@ export default function Landing(){
                 </div>
                 <div className='relative z-10 flex flex-col gap-10 justify-center items-center xl:items-center md:items-start xl:px-[10vw] px-[6vw] h-full md:h-auto'>
                     <section className='flex w-fit md:mt-60'>
-                        <h1 className=' text-white font-medium poppins leading-snug  text-4xl text-center md:text-5xl md:text-left xl:text-center xl:text-6xl'>Chat, Chill, and Connect.<br/>Hop on the call now</h1>
+                        <h1 className=' text-white font-medium poppins leading-snug  text-4xl text-center md:text-5xl md:text-left xl:text-center xl:text-6xl'>Chat. Chill. Connect.<br/>Hop on the call now</h1>
                     </section>
                     <section className='xl:w-[800px] md:w-[500px] z-10 flex flex-col'>
                         <form onSubmit={handleRegister} className=' w-full xl:h-16 h-12 flex bg-white justify-between rounded-lg '>
