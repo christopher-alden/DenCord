@@ -59,7 +59,7 @@ export default function Landing(){
             </Header>
             <div className='w-screen h-screen'>
                 <div className='absolute w-full h-screen flex flex-col'>
-                    <div className='w-full h-[30vh] md:h-[20vh] bg-main z-10'></div>
+                    <div className='w-full h-[25vh] md:h-[20vh] bg-main z-10'></div>
                     <div className='w-full h-full bg-gradient-to-b from-main to bg-transparent z-10 '></div>
                     <Image attributes='absolute w-full h-screen opacity-75 top-[18vh]' imgAttributes='object-left md:object-center' src={BG}/>
                 </div>

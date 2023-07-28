@@ -7,7 +7,7 @@ const DenCordLogo = () => (
       <img
         src={logo}
         alt="logo"
-        className="w-5 h-5"
+        className="w-6"
       />
       <h1 className="text-xl uppercase font-bold">DenCord</h1>
     </div>
