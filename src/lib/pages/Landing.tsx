@@ -2,12 +2,13 @@ import BG from '../../assets/bg/LoginBG2.jpg'
 import RoundedButton from '../components/buttons/RoundedButton';
 import Image from '../components/image/Image'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import debounce from 'lodash.debounce'
 import ValidationTooltip from '../components/tooltip/ValidationTooltip';
 import DenCordLogo from '../components/icons/DenCordLogo';
 import Header from '../components/ui/Header';
 import Hamburger from '../components/ui/Hamburger';
+import WierdNames from '../data/WierdNames.json'
 
 
 export default function Landing(){
@@ -15,7 +16,26 @@ export default function Landing(){
     const [username, setUsername] = useState<string | null>('')
     const [isUsernameNull,setIsUsernameNull] = useState<boolean>(true)
     const [showTooltip, setShowTooltip] = useState<boolean>(false)
-    const [showHamburger, setShowHamburger] = useState<boolean>(false)
+    const [dataName, setDataName] = useState<string | null>(null)
+
+    useEffect(()=>{
+        try{
+            if(WierdNames){
+                const randomIdx:number = Math.floor(Math.random() * WierdNames.names.length)
+                const randomName:string = WierdNames.names[randomIdx]
+                if(randomName){
+                    setDataName(randomName)
+                }
+                else{
+                    setDataName("DefaultName101")
+                }
+            }
+        }
+        catch(err){
+            console.error('Error:', err)
+        }
+    }, [])
+    
     
     const handleLogin = () =>{
         navigate('/login')
@@ -69,8 +89,8 @@ export default function Landing(){
                     </section>
                     <section className='xl:w-[800px] md:w-[500px] z-10 flex flex-col'>
                         <form onSubmit={handleRegister} className=' w-full xl:h-16 h-12 flex bg-white justify-between rounded-lg '>
-                            <input type='text' maxLength={25} placeholder="lebahganteng777" onChange={(e)=>handleUsernameChange(e.target.value)} className=' h-full rounded-lg outline-none w-full bg-transparent text-main placeholder-light text-lg px-4 xl:px-8 md:placeholder:text-base xl:placeholder:text-lg' spellCheck={false}></input>
-                            <RoundedButton submit={true} textColor='text-white' color='bg-accent' size='xl:text-xl  md:text-md' font='md:font-semibold xl:font-bold' padding='xl:px-8 xl:py-4 px-4 py-2'>Register Now</RoundedButton>
+                            <input type='text' maxLength={25} placeholder={dataName!} onChange={(e)=>handleUsernameChange(e.target.value)} className=' h-full rounded-lg outline-none w-full bg-transparent text-main placeholder-light text-lg px-4 xl:px-8 md:placeholder:text-base xl:placeholder:text-lg' spellCheck={false}></input>
+                            <RoundedButton submit={true} textColor='text-white' color='bg-accent' size='xl:text-xl  md:text-md' font='font-semibold xl:font-bold' padding='xl:px-8 xl:py-4 px-4 py-2'>Register Now</RoundedButton>
                         </form>
                         <div className={`${showTooltip ? 'visible' : 'hidden'} mt-6`}>
                             <ValidationTooltip color='bg-white' textColor='text-black' state={isUsernameNull}>calm the **** down, fill in ur username first buddy...</ValidationTooltip>
