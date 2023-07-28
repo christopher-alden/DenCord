@@ -12,11 +12,11 @@ type RoundedButtonProps = {
     handleEvent?: () => any
 }
 
-const RoundedButton = ({children, textColor='text-white',font='font-normal', color='bg-transparent', padding='px-4 py-2', size='md', hover=true, handleEvent, submit=false} : RoundedButtonProps) =>{
+const RoundedButton = ({children, textColor='text-white',font='font-normal', color='bg-transparent', padding='px-4 py-2', size='text-base', hover=true, handleEvent, submit=false} : RoundedButtonProps) =>{
 
     return(
-        <button type={submit ? 'submit' : 'button'} onClick={handleEvent} className={`${color} ${padding} rounded-lg ${hover ? 'opacity-100 hover:opacity-75 transition-all duration-300 ease-in-out ' : 'opacity-100'}`}>
-            <div className={`${textColor} text-${size} ${font}`}>{children}</div>
+        <button type={submit ? 'submit' : 'button'} onClick={handleEvent} className={`${color} ${padding} rounded-lg ${hover ? 'opacity-100 hover:opacity-75 transition-all duration-300 ease-in-out ' : 'opacity-100'} `}>
+            <div className={`${textColor} ${size} ${font} whitespace-nowrap`}>{children}</div>
         </button>
     );
 }

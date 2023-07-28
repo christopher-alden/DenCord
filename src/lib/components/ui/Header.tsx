@@ -6,7 +6,7 @@ type HeaderProps = {
 
 const Header = ({children}: HeaderProps) =>{
     return (
-        <nav className='flex justify-between px-[10vw] items-center absolute z-20 w-full h-40 text-white text-md '>
+        <nav className='flex justify-between xl:px-[10vw] px-[6vw] items-center absolute z-20 w-full h-20 md:h-40 text-white text-md '>
             {children}
         </nav>
     
