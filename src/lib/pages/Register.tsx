@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { auth, db} from "../../firebase"
 import { doc, setDoc } from "firebase/firestore"; 
+import Loader from "../components/loader/Loader"
 
 
 
@@ -17,13 +18,16 @@ const Register = () =>{
     const filledUsername = searchParams.get('username') || ''
 
     const [usernameValue , setUsernameValue] = useState<string>(filledUsername);
+    // TODO : error message
     const [error, setError] = useState<boolean>(false)
+    const [loading, setLoading] = useState<boolean>(false)
     const changeField = (value:string) =>{
         setUsernameValue(value)
     }
 
     const handleRegister = async (e:any) =>{
         e.preventDefault()
+        setLoading(true)
         const username = e.target[0].value
         const email = e.target[1].value
         const password = e.target[2].value
@@ -41,16 +45,20 @@ const Register = () =>{
                     photoUrl: ProfileIcon
                 });
                 await setDoc(doc(db, "userChats", response.user.uid), {});
+                setLoading(false)
                 navigate('/')
-            }).catch((error) => {
-                console.log(error)
-            });
-            
+            })
         }
         catch(err){
+            console.log(err)
+            setLoading(false)
             setError(true)
         }
         
+    }
+
+    if(loading){
+        return <Loader/>
     }
     return(
         <div className="h-screen w-screen bg-gradient-to-tr from-black to-sub">

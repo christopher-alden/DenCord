@@ -17,15 +17,13 @@ const App: React.FunctionComponent<IAppProps> = (props) => {
 
   const ProtectedRoute = ({children}:any) => {
     if(!currUser){
-      console.log("bruh")
       return <Navigate to='/landing'/>
     }
     else{
-      return(
-        <>{children}</>
-      )
+      return <>{children}</>
     }
   }
+  
   return (
         <BrowserRouter>
             <Routes>

@@ -2,6 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase';
+import Loader from '../components/loader/Loader';
 
 export const AuthContext = createContext<any>(null);
 
@@ -21,7 +22,7 @@ export const AuthContextProvider = ({ children }: any) => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>
   }
 
   return <AuthContext.Provider value={{ currUser }}>{children}</AuthContext.Provider>;

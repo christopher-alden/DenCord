@@ -8,7 +8,8 @@ import ValidationTooltip from '../components/tooltip/ValidationTooltip';
 import DenCordLogo from '../components/icons/DenCordLogo';
 import Header from '../components/ui/Header';
 import Hamburger from '../components/ui/Hamburger';
-import WierdNames from '../data/WierdNames.json'
+import Wierd from '../data/Wierd.json'
+import { getRandomGenerator } from '../utils/randomGenerator';
 
 
 export default function Landing(){
@@ -20,15 +21,9 @@ export default function Landing(){
 
     useEffect(()=>{
         try{
-            if(WierdNames){
-                const randomIdx:number = Math.floor(Math.random() * WierdNames.names.length)
-                const randomName:string = WierdNames.names[randomIdx]
-                if(randomName){
-                    setDataName(randomName)
-                }
-                else{
-                    setDataName("DefaultName101")
-                }
+            if(Wierd.names){
+                const randomName = getRandomGenerator(Wierd.names)
+                setDataName(randomName)
             }
         }
         catch(err){
