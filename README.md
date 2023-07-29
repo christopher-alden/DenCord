@@ -12,3 +12,11 @@ Personal project in replicating discord
 * Tailwind
 * Typescript
 * Firebase
+
+# Features Implimented
+* Authenthication
+    - Login
+    - Register
+* Details
+    - Debouncing input
+    - Custom random generated template messages (loading, username)

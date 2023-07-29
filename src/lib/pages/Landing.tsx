@@ -1,4 +1,4 @@
-import BG from '../../assets/bg/LoginBG2.jpg'
+import BG from '../../assets/bg/LandingBG2.jpg'
 import RoundedButton from '../components/buttons/RoundedButton';
 import Image from '../components/image/Image'
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import debounce from 'lodash.debounce'
 import ValidationTooltip from '../components/tooltip/ValidationTooltip';
 import DenCordLogo from '../components/icons/DenCordLogo';
 import Header from '../components/ui/Header';
-import Wierd from '../data/Wierd.json'
+import Weird from '../data/Weird.json'
 import { getRandomGenerator } from '../utils/randomGenerator';
 
 
@@ -20,8 +20,8 @@ export default function Landing(){
 
     useEffect(()=>{
         try{
-            if(Wierd.names){
-                const randomName = getRandomGenerator(Wierd.names)
+            if(Weird.names){
+                const randomName = getRandomGenerator(Weird.names)
                 setDataName(randomName)
             }
         }

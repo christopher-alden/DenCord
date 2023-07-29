@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import Wierd from '../../data/Wierd.json';
+import Weird from '../../data/Weird.json';
 import './Loader.css';
 import {getRandomGenerator} from '../../utils/randomGenerator';
 
@@ -8,8 +8,8 @@ const Loader = () => {
 
   useEffect(() => {
     try {
-      if (Wierd.loadingSentences) {
-        const randomSentences = getRandomGenerator(Wierd.loadingSentences);
+      if (Weird.loadingSentences) {
+        const randomSentences = getRandomGenerator(Weird.loadingSentences);
         setLoadingSentence(randomSentences);
       }
     } catch (err) {
