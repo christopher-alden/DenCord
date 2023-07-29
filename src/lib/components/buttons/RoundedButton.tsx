@@ -16,7 +16,7 @@ const RoundedButton = ({children, textColor='text-white',font='font-normal', col
 
     return(
         <button type={submit ? 'submit' : 'button'} onClick={handleEvent} className={`${color} ${padding} rounded-lg ${hover ? 'opacity-100 hover:opacity-75 transition-all duration-300 ease-in-out ' : 'opacity-100'} `}>
-            <div className={`${textColor} ${size} ${font} whitespace-nowrap`}>{children}</div>
+            <div className={`${textColor} ns:${size} ${font} whitespace-nowrap text-sm`}>{children}</div>
         </button>
     );
 }

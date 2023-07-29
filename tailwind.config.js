@@ -9,9 +9,11 @@ module.exports = {
         'light':'#9CA3AF',
         'hover':'#4b4c52',
         'accent':'#5865F2',
-        
       },
-      borderRadius: ['hover']
+      borderRadius: ['hover'],
+      screens:{
+        'ns': '520px'
+      }
     },
   },
   plugins: [],

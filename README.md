@@ -8,6 +8,7 @@ Personal project in replicating discord
 
 # Technology Used
 * React
+* Redux
 * Tailwind
 * Typescript
 * Firebase

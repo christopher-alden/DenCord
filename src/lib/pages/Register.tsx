@@ -65,24 +65,24 @@ const Register = () =>{
             <Header>
                 <DenCordLogo/>
                 <div className='flex xl:gap-8 md:gap-4 font-light items-center justify-end'>
-                    <RoundedButton handleEvent={()=>navigate('/login')} textColor='text-white' color='bg-transparent border-[1px] border-light border-solid' padding='md:px-8 px-4 py-2'>Log in</RoundedButton>
+                    <RoundedButton handleEvent={()=>navigate('/login')} textColor='text-white' color='bg-transparent border-[1px] border-light border-solid' padding='md:px-8 px-4 py-2' font='font-bold md:font-semibold'>Log in</RoundedButton>
                 </div>
             </Header>
-            <div className="w-full h-full flex flex-col justify-center items-center gap-10 py-40">
-                <h1 className="text-white capitalize font-bold poppins text-4xl text-center leading-snug">Create your<br/>Dencord account</h1>
+            <div className="w-full h-full flex flex-col justify-center items-center gap-6 md:gap-10 py-40 px-[6vw]">
+                <h1 className="text-white capitalize font-bold poppins text-3xl md:text-4xl text-center leading-snug">Create your<br/>Dencord account</h1>
                <section>
-                    <form onSubmit={handleRegister} className="flex flex-col gap-4">
+                    <form onSubmit={handleRegister} className="flex flex-col gap-2 md:gap-4">
                         <label className="flex flex-col gap-2">
                             <p className="text-white  text-sm">Username</p> 
-                            <input spellCheck={false} type="text" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg w-96" onChange={(e)=>{changeField(e.target.value)}} value={usernameValue}></input>
+                            <input spellCheck={false} type="text" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg " onChange={(e)=>{changeField(e.target.value)}} value={usernameValue}></input>
                         </label>
                         <label className="flex flex-col gap-2">
                             <p className="text-white  text-sm">Email</p> 
-                            <input spellCheck={false} type="text" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg w-96"></input>
+                            <input spellCheck={false} type="text" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg "></input>
                         </label>
                         <label className="flex flex-col gap-2">
                             <p className="text-white  text-sm">Password</p> 
-                            <input spellCheck={false} type="password" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg w-96"></input>
+                            <input spellCheck={false} type="password" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg "></input>
                         </label>
                         <div className="flex items-center text-white">
                             <div className="w-1/2 h-[1px] bg-light"/> <p className="text-center px-4">Or</p> <div/><div className="w-1/2 h-[1px] bg-light"/>
@@ -94,7 +94,7 @@ const Register = () =>{
                             </div>
                         </RoundedButton>
                         <RoundedButton submit={true} padding="px-4 py-2 mt-8" font="font-bold" color="bg-accent">Register</RoundedButton>
-                        <p className="text-light text-xs w-96">By registering, you agree that your data won't be shared and exploited by any means.</p>
+                        <p className="text-light text-xs">By registering, you agree that your data won't be shared and exploited by any means.</p>
                     </form>
                </section>
             </div>

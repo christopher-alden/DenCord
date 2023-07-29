@@ -11,7 +11,7 @@ const Login = () =>{
             {/* <Header>
                 <DenCordLogo/>
                 <div className='flex xl:gap-8 md:gap-4 font-light items-center justify-end'>
-                    <RoundedButton handleEvent={()=>navigate('/register')} textColor='text-white' color='bg-transparent border-[1px] border-light border-solid' padding='md:px-8 px-4 py-2'>Register</RoundedButton>
+                    <RoundedButton handleEvent={()=>navigate('/register')} textColor='text-white' color='bg-transparent border-[1px] border-light border-solid' padding='md:px-8 px-4 py-2' font='font-bold md:font-semibold'>Register</RoundedButton>
                 </div>
             </Header> */}
             <Loader/>
