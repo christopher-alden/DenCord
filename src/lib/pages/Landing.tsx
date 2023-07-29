@@ -81,7 +81,7 @@ export default function Landing(){
                     <div className='w-full h-full bg-gradient-to-b from-main to-transparent z-10 '></div>
                     <Image attributes='absolute w-full h-full opacity-75 top-[18vh]' imgAttributes='object-left md:object-center' src={BG}/>
                 </div>
-                <div className='relative z-10 flex flex-col gap-10 justify-center items-center xl:items-center md:items-start xl:px-[10vw] px-[6vw] h-full md:h-auto'>
+                <div className='relative h-screen z-10 flex flex-col gap-10 justify-center items-center xl:items-center md:items-start xl:px-[10vw] px-[6vw] md:h-auto'>
                     <section className='flex w-fit md:mt-60'>
                         <h1 className=' text-white font-medium poppins leading-snug  text-4xl text-center md:text-5xl md:text-left xl:text-center xl:text-6xl animate'>Chat. Chill. Connect.<br/>Hop on the call now.</h1>
                     </section>
