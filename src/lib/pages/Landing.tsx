@@ -72,18 +72,18 @@ export default function Landing(){
                 <div className='flex xl:gap-8 md:gap-4 font-light items-center justify-end'>
                     <RoundedButton handleEvent={handleGithub}>Github</RoundedButton>
                     {/* <RoundedButton>Learn More</RoundedButton> */}
-                    <RoundedButton handleEvent={handleLogin} textColor='text-white' color='bg-accent' padding='md:px-8 px-4 py-2'>Log In</RoundedButton>
+                    <RoundedButton handleEvent={handleLogin} textColor='text-white' color='bg-accent' padding='md:px-8 px-4 py-2 '>Log In</RoundedButton>
                 </div>
             </Header>
-            <div className='w-screen h-screen'>
-                <div className='absolute w-full h-screen flex flex-col'>
+            <div className='w-full h-full'>
+                <div className='absolute w-full h-full flex flex-col'>
                     <div className='w-full h-[25vh] md:h-[20vh] bg-main z-10'></div>
-                    <div className='w-full h-full bg-gradient-to-b from-main to bg-transparent z-10 '></div>
-                    <Image attributes='absolute w-full h-screen opacity-75 top-[18vh]' imgAttributes='object-left md:object-center' src={BG}/>
+                    <div className='w-full h-full bg-gradient-to-b from-main to-transparent z-10 '></div>
+                    <Image attributes='absolute w-full h-full opacity-75 top-[18vh]' imgAttributes='object-left md:object-center' src={BG}/>
                 </div>
                 <div className='relative z-10 flex flex-col gap-10 justify-center items-center xl:items-center md:items-start xl:px-[10vw] px-[6vw] h-full md:h-auto'>
                     <section className='flex w-fit md:mt-60'>
-                        <h1 className=' text-white font-medium poppins leading-snug  text-4xl text-center md:text-5xl md:text-left xl:text-center xl:text-6xl'>Chat. Chill. Connect.<br/>Hop on the call now</h1>
+                        <h1 className=' text-white font-medium poppins leading-snug  text-4xl text-center md:text-5xl md:text-left xl:text-center xl:text-6xl animate'>Chat. Chill. Connect.<br/>Hop on the call now.</h1>
                     </section>
                     <section className='xl:w-[800px] md:w-[500px] z-10 flex flex-col'>
                         <form onSubmit={handleRegister} className=' w-full xl:h-16 h-12 flex bg-white justify-between rounded-lg '>

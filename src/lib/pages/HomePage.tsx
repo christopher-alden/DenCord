@@ -1,16 +1,12 @@
-import Navbar from "../components/navbar/Navbar";
-import Sidebar from "../components/sidebar/Sidebar";
+import { auth } from '../../firebase';
+import RoundedButton from '../components/buttons/RoundedButton';
+import Navbar from '../components/navbar/Navbar';
+import Sidebar from '../components/sidebar/Sidebar';
+import { signOut } from 'firebase/auth';
 
 export default function HomePage() {
   return (
-    <div className="flex h-screen w-screen">
-        <div className='fixed bottom-0 w-full '>
-                <Navbar />
-            </div>
-            <div className='fixed left-0 h-full z-10'>
-                <Sidebar/>
-            </div>
-    </div>
+    <RoundedButton handleEvent={()=>signOut(auth)} textColor="text-white" font='text-xl' color="bg-red-500">logout</RoundedButton>
   );
 }
 

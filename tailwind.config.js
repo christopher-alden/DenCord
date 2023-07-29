@@ -11,7 +11,7 @@ module.exports = {
         'accent':'#5865F2',
         
       },
-     
+      borderRadius: ['hover']
     },
   },
   plugins: [],
