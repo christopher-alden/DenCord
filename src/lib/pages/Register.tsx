@@ -71,7 +71,7 @@ const Register = () =>{
             <div className="w-full h-full flex flex-col justify-center items-center gap-6 md:gap-10 py-40 px-[6vw] ">
                 <h1 className="text-white capitalize font-bold poppins text-3xl md:text-4xl text-center leading-snug">Create your<br/>Dencord account</h1>
                 <section>
-                        <form onSubmit={handleRegister} className="flex flex-col gap-2 md:gap-4 md:min-w-[480px] min-w-[320px]">
+                        <form onSubmit={handleRegister} className="flex flex-col gap-2 md:gap-4 md:w-[480px] w-[320px]">
                             <label className="flex flex-col gap-2">
                                 <p className="text-white  text-sm">Username</p> 
                                 <input spellCheck={false} type="text" className="border-[1px] focus:ring-0 focus:outline-none focus:border-accent text-white px-4 py-2 bg-transparent rounded-lg " onChange={(e)=>{changeField(e.target.value)}} value={usernameValue}></input>
@@ -94,7 +94,7 @@ const Register = () =>{
                                 </div>
                             </RoundedButton>
                             <RoundedButton submit={true} padding="px-4 py-2 mt-8" font="font-bold" color="bg-accent">Register</RoundedButton>
-                            <p className="text-light text-xs">By registering, you agree that your data won't be shared and exploited by any means.</p>
+                            <p className="text-light text-xs flex">By registering, you agree that your data won't be shared and exploited by any means.</p>
                         </form>
                 </section>
             </div>
