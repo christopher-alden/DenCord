@@ -2,10 +2,6 @@
 
 Personal project in replicating discord
 
-## Features implemented
-
-*
-
 # Technology Used
 * React
 * Redux
@@ -14,7 +10,7 @@ Personal project in replicating discord
 * Firebase
 
 # Features Implimented
-* Authenthication
+* Authentication
     - Login
     - Register
 * Details
