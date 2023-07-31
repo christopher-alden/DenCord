@@ -5,7 +5,7 @@ import RoundedButton from "../components/buttons/RoundedButton"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { auth, db} from "../../firebase"
+import { auth, db, signInWithGoogle} from "../../firebase"
 import { doc, setDoc } from "firebase/firestore"; 
 import Loader from "../components/loader/Loader"
 
@@ -20,14 +20,14 @@ const Register = () =>{
     const [usernameValue , setUsernameValue] = useState<string>(filledUsername);
     // TODO : error message
     const [error, setError] = useState<boolean>(false)
-    const [loading, setLoading] = useState<boolean>(false)
+
     const changeField = (value:string) =>{
         setUsernameValue(value)
     }
 
     const handleRegister = async (e:any) =>{
         e.preventDefault()
-        setLoading(true)
+
         const username = e.target[0].value
         const email = e.target[1].value
         const password = e.target[2].value
@@ -45,21 +45,21 @@ const Register = () =>{
                     photoUrl: ProfileIcon
                 });
                 await setDoc(doc(db, "userChats", response.user.uid), {});
-                setLoading(false)
                 navigate('/')
             })
         }
         catch(err){
             console.log(err)
-            setLoading(false)
             setError(true)
         }
         
     }
 
-    if(loading){
-        return <Loader/>
+    const signInWithGoogleNavigate = () => {
+        signInWithGoogle().then(()=>navigate('/'))
     }
+    
+
     return(
         <div className="h-screen w-screen bg-gradient-to-tr from-black to-sub">
             <Header>
@@ -87,7 +87,7 @@ const Register = () =>{
                             <div className="flex items-center text-white">
                                 <div className="w-1/2 h-[1px] bg-light"/> <p className="text-center px-4">Or</p> <div/><div className="w-1/2 h-[1px] bg-light"/>
                             </div>
-                            <RoundedButton color="bg-white" textColor="text-black">
+                            <RoundedButton handleEvent={signInWithGoogleNavigate} color="bg-white" textColor="text-black">
                                 <div className="flex gap-2 justify-center">
                                     <img className="w-6" src="https://img.icons8.com/windows/32/google-logo.png" alt="google-logo"/>
                                     <h1>Continue with Google</h1>

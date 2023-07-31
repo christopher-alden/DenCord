@@ -1,13 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
+import { signInWithEmailAndPassword, signInWithPopup} from "firebase/auth";
+import { auth, signInWithGoogle } from "../../firebase";
 import RoundedButton from "../components/buttons/RoundedButton";
 import DenCordLogo from "../components/icons/DenCordLogo";
 import Header from "../components/ui/Header";
-import Loader from "../components/loader/Loader";
-import Image from "../components/image/Image";
-import LoginBG from "../../assets/bg/LoginBG.png"
 
 const Login = () =>{
     const navigate = useNavigate()
@@ -26,6 +23,12 @@ const Login = () =>{
 
         }
     }
+
+    const signInWithGoogleNavigate = () => {
+        signInWithGoogle().then(()=>navigate('/'))
+    }
+    
+
     return(
         <div className="h-screen w-screen bg-gradient-to-tr from-black to-sub">
             <Header>
@@ -53,14 +56,14 @@ const Login = () =>{
                         <div className="flex items-center text-white">
                                 <div className="w-1/2 h-[1px] bg-light"/> <p className="text-center px-4">Or</p> <div/><div className="w-1/2 h-[1px] bg-light"/>
                             </div>
-                            <RoundedButton color="bg-white" textColor="text-black">
+                            <RoundedButton handleEvent={signInWithGoogleNavigate} color="bg-white" textColor="text-black">
                                 <div className="flex gap-2 justify-center">
                                     <img className="w-6" src="https://img.icons8.com/windows/32/google-logo.png" alt="google-logo"/>
                                     <h1>Continue with Google</h1>
                                 </div>
                             </RoundedButton>
                         <RoundedButton submit={true} padding="px-4 py-2 mt-8" font="font-bold" color="bg-accent">Log In</RoundedButton>
-                        <span className="text-light text-xs md:text-base">You fr don't have an account? <a className="text-xs md:text-base text-blue-500" href="/register">Register Here</a></span>
+                        <span className="text-light text-xs ">You really don't have an account? <a className="text-xs  text-blue-500" href="/register">Register Here</a></span>
                     </form>
                 </section>
             </div>

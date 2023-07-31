@@ -11,6 +11,7 @@ import Weird from '../data/Weird.json'
 import { getRandomGenerator } from '../utils/randomGenerator';
 
 
+
 export default function Landing(){
     const navigate = useNavigate()
     const [username, setUsername] = useState<string | null>('')
@@ -91,6 +92,7 @@ export default function Landing(){
                     </section>
                 </div>
             </div>
+            
             <footer className='fixed bottom-0 w-full h-20 flex justify-center items-center'>
                 <h1 className='font-bold uppercase poppins text-white text-2xl opacity-50'>christopheraldn</h1>
             </footer>
