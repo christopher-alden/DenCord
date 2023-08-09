@@ -1,6 +1,6 @@
 import {Navigate, Outlet} from 'react-router-dom';
 import {useSelector} from 'react-redux';
-import {selectUser} from '../../store/authSlice';
+import {selectUser} from '../../lib/store/authSlice';
 
 const ProtectedRoute = ({children}: any) => {
   const currUser = useSelector(selectUser);

@@ -1,13 +1,13 @@
 import './App.css';
 import * as React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './lib/pages/HomePage';
-import Landing from './lib/pages/Landing';
-import Register from './lib/pages/Register';
-import Login from './lib/pages/Login';
-import Loader from './lib/components/loader/Loader';
+import HomePage from './pages/HomePage';
+import Landing from './pages/Landing';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Loader from './components/loader/Loader';
 import useAuth from './lib/hooks/useAuth';
-import ProtectedRoute from './lib/components/route/ProtectedRoute';
+import ProtectedRoute from './components/route/ProtectedRoute';
 import {useSelector} from 'react-redux';
 import { selectUser } from './lib/store/authSlice';
 

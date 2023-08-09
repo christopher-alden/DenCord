@@ -1,11 +1,11 @@
 import DenCordLogo from "../components/icons/DenCordLogo"
-import ProfileIcon from "../../assets/DenCordLogoBG.png"
+import ProfileIcon from "../assets/DenCordLogoBG.png"
 import Header from "../components/ui/Header"
 import RoundedButton from "../components/buttons/RoundedButton"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { auth, db, signInWithGoogle} from "../../firebase"
+import { auth, db, signInWithGoogle} from "../firebase"
 import { doc, setDoc } from "firebase/firestore"; 
 import Loader from "../components/loader/Loader"
 
@@ -65,11 +65,11 @@ const Register = () =>{
             <Header>
                 <DenCordLogo/>
                 <div className='flex xl:gap-8 md:gap-4 font-light items-center justify-end'>
-                    <RoundedButton handleEvent={()=>navigate('/login')} textColor='text-white' color='bg-transparent border-[1px] border-light border-solid' padding='md:px-8 px-4 py-2' font='font-bold md:font-semibold'>Log in</RoundedButton>
+                    <RoundedButton handleEvent={()=>navigate('/login')} textClassName="text-white font-bold md:font-semibold" className="bg-transparent border-[1px] border-light border-solid md:px-8 px-4 py-2">Log in</RoundedButton>
                 </div>
             </Header>
             <div className="w-full h-full flex flex-col justify-center items-center gap-6 md:gap-10 py-40 px-[6vw] ">
-                <h1 className="text-white capitalize font-bold poppins text-3xl md:text-4xl text-center leading-snug">Create your<br/>Dencord account</h1>
+                <h1 className="text-white capitalize font-bold text-3xl md:text-4xl text-center leading-snug">Create your<br/>Dencord account</h1>
                 <section>
                         <form onSubmit={handleRegister} className="flex flex-col gap-2 md:gap-4 md:w-[480px] w-[320px]">
                             <label className="flex flex-col gap-2">
@@ -87,13 +87,13 @@ const Register = () =>{
                             <div className="flex items-center text-white">
                                 <div className="w-1/2 h-[1px] bg-light"/> <p className="text-center px-4">Or</p> <div/><div className="w-1/2 h-[1px] bg-light"/>
                             </div>
-                            <RoundedButton handleEvent={signInWithGoogleNavigate} color="bg-white" textColor="text-black">
+                            <RoundedButton handleEvent={signInWithGoogleNavigate} className="bg-white" textClassName="text-black" >
                                 <div className="flex gap-2 justify-center">
                                     <img className="w-6" src="https://img.icons8.com/windows/32/google-logo.png" alt="google-logo"/>
                                     <h1>Continue with Google</h1>
                                 </div>
                             </RoundedButton>
-                            <RoundedButton submit={true} padding="px-4 py-2 mt-8" font="font-bold" color="bg-accent">Register</RoundedButton>
+                            <RoundedButton submit={true} className="px-4 py-2 mt-8 bg-accent" textClassName="font-bold">Register</RoundedButton>
                             <p className="text-light text-xs flex">By registering, you agree that your data won't be shared and exploited by any means.</p>
                         </form>
                 </section>

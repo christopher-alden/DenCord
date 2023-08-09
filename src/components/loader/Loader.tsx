@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
-import Weird from '../../data/Weird.json';
+import Weird from '../../lib/data/Weird.json';
 import './Loader.css';
-import {getRandomGenerator} from '../../utils/randomGenerator';
+import {getRandomGenerator} from '../../lib/utils/randomGenerator';
 
 const Loader = () => {
   const [loadingSentence, setLoadingSentence] = useState<string | null>(null);

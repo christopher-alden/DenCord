@@ -1,5 +1,5 @@
 import RoundedButton from '../buttons/RoundedButton';
-import logo from '../../../assets/DenCordLogo.png';
+import logo from '../../assets/DenCordLogo.png';
 import { useNavigate } from 'react-router-dom';
 
 const DenCordLogo = () => {
@@ -8,7 +8,7 @@ const DenCordLogo = () => {
     <RoundedButton
       handleEvent={()=>navigate('/')}
       hover={false}
-      padding="px-0 py-0"
+      className='px-0 py-0'
     >
       <div className="flex justify-center items-center gap-2 poppins">
         <img
