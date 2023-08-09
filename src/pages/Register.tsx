@@ -3,8 +3,8 @@ import ProfileIcon from "../assets/DenCordLogoBG.png"
 import Header from "../components/ui/Header"
 import RoundedButton from "../components/buttons/RoundedButton"
 import { useLocation, useNavigate } from "react-router-dom"
-import { useState } from 'react'
-import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
+import { useState, useEffect } from 'react'
+import { createUserWithEmailAndPassword, updateProfile, getRedirectResult} from "firebase/auth";
 import { auth, db, signInWithGoogle} from "../firebase"
 import { doc, setDoc } from "firebase/firestore"; 
 import Loader from "../components/loader/Loader"
@@ -12,6 +12,27 @@ import Loader from "../components/loader/Loader"
 
 
 const Register = () =>{
+    useEffect(()=>{
+        const redirectRes = async () =>{
+            try{
+                const res = await getRedirectResult(auth)
+                if(res){
+                    await setDoc(doc(db, "users", res.user.uid), {
+                        uid: res.user.uid,
+                        username: res.user.displayName,
+                        email: res.user.emailgit,
+                        photoUrl: ProfileIcon
+                    });
+                    await setDoc(doc(db, "userChats", res.user.uid), {});
+                    navigate('/')
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+        redirectRes()
+    },[])
     const navigate = useNavigate()
     const location = useLocation()
     const searchParams = new URLSearchParams(location.search)
@@ -33,18 +54,18 @@ const Register = () =>{
         const password = e.target[2].value
 
         try{
-            const response = await createUserWithEmailAndPassword(auth, email, password)
+            const res = await createUserWithEmailAndPassword(auth, email, password)
             
-            await updateProfile(response.user, {
+            await updateProfile(res.user, {
                 displayName: username, photoURL: ProfileIcon
-            }).then( async() => {
-                await setDoc(doc(db, "users", response.user.uid), {
-                    uid: response.user.uid,
+            }).then( async () => {
+                await setDoc(doc(db, "users", res.user.uid), {
+                    uid: res.user.uid,
                     username,
                     email,
                     photoUrl: ProfileIcon
                 });
-                await setDoc(doc(db, "userChats", response.user.uid), {});
+                await setDoc(doc(db, "userChats", res.user.uid), {});
                 navigate('/')
             })
         }
@@ -53,10 +74,6 @@ const Register = () =>{
             setError(true)
         }
         
-    }
-
-    const signInWithGoogleNavigate = () => {
-        signInWithGoogle().then(()=>navigate('/'))
     }
     
 
@@ -87,7 +104,7 @@ const Register = () =>{
                             <div className="flex items-center text-white">
                                 <div className="w-1/2 h-[1px] bg-light"/> <p className="text-center px-4">Or</p> <div/><div className="w-1/2 h-[1px] bg-light"/>
                             </div>
-                            <RoundedButton handleEvent={signInWithGoogleNavigate} className="bg-white" textClassName="text-black" >
+                            <RoundedButton handleEvent={signInWithGoogle} className="bg-white" textClassName="text-black" >
                                 <div className="flex gap-2 justify-center">
                                     <img className="w-6" src="https://img.icons8.com/windows/32/google-logo.png" alt="google-logo"/>
                                     <h1>Continue with Google</h1>

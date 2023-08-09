@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithPopup } from "firebase/auth"
+import { getAuth, signInWithPopup, signInWithRedirect } from "firebase/auth"
 import { getStorage} from "firebase/storage"
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
@@ -20,12 +20,6 @@ export const auth = getAuth()
 export const storage = getStorage()
 export const db = getFirestore();
 const googleProvider = new GoogleAuthProvider();
-export const signInWithGoogle = async () => {
-  try{
-    await signInWithPopup(auth, googleProvider)
-  }
-  catch(err){
-    alert(err)
-  }
-}
+export const signInWithGoogle = async () => signInWithRedirect(auth, googleProvider)
+
 const analytics = getAnalytics(app);
